@@ -1,0 +1,7 @@
+main: de.mcreloaded.core.Core
+name: MCReloaded
+version: 0.0.1
+api-version: 1.17
+
+commands:
+  debug:
