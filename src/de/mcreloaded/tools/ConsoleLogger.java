@@ -50,4 +50,18 @@ public final class ConsoleLogger {
 	public static void warning(Object message) {
 		Bukkit.getConsoleSender().sendMessage("[Warning] : " + message);
 	}
+	
+	public enum ConsoleLoggerNames{
+		LITESQL("LiteSQL");
+		
+		private final String name;
+		
+		ConsoleLoggerNames(String name) {
+			this.name = name;
+		}
+		
+		public final String getDisplayName() {
+			return this.name;
+		}
+	}
 }

@@ -1,11 +1,11 @@
 package de.mcreloaded.custom.achievements;
 
-public class Achievement {
+public class AchievementCache{
 	
 	private final Achievements achievement;
 	private final Long timeclaimed;
 	
-	public Achievement(Achievements achievement, Long timeclaimed) {
+	public AchievementCache(Achievements achievement, Long timeclaimed) {
 		this.achievement = achievement;
 		this.timeclaimed = timeclaimed;
 	}
