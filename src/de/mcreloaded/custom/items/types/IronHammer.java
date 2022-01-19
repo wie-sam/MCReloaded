@@ -17,7 +17,7 @@ public final class IronHammer extends CustomItem implements Listener{
 	//Generating default IronHammer Item
 	public IronHammer() {
 		super(new ItemStack(Material.IRON_PICKAXE), ItemType.IRONHAMMER);
-		updateLore(new LoreBuilder(this).addDescriptionLine("Test").addDescriptionLine("TEst1"));
+		updateLore(new LoreBuilder(this).addDescriptionLine("Test0").addDescriptionLine("Test1"));
 		setCustomModelData(1);
 		
 		Bukkit.getPluginManager().registerEvents(this, Core.getPlugin());	

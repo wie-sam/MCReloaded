@@ -23,10 +23,12 @@ public class CustomItem {
 		this.itemstack = itemstack;
 	}
 	
+	//Vererbt eine alte CustomItem Instance und generiert einen neuen HashCode
 	public CustomItem(CustomItem customitem) {
 		this.itemtype = customitem.getItemType();
 		this.itemstack = customitem.getItemStack();
 	}
+	
 	
 	public CustomItem(ItemStack itemstack) throws CustomItemNotFoundExeption{
 		final ItemMeta itemmeta = itemstack.getItemMeta();
