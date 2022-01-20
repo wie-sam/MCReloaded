@@ -29,9 +29,9 @@ public final class DebugCommand implements CommandExecutor, TabCompleter{
 			for(Achievements a : Achievements.values()) {
 				Core.getPlugin().USERMANAGER.getProfile(player.getUniqueId()).giveAchievement(a);
 			}
-		
+			
 			player.getInventory().addItem(Core.getPlugin().ITEMMANAGER.getCustomItemByID(ItemType.IRONHAMMER).getItemStack());
-			player.sendMessage(Core.getPlugin().ITEMMANAGER.getCustomItemByID(ItemType.IRONHAMMER).getItemStack().toString());
+			//player.sendMessage(Core.getPlugin().ITEMMANAGER.getCustomItemByID(ItemType.IRONHAMMER).getItemStack().toString());
 		}
 		return false;
 	}

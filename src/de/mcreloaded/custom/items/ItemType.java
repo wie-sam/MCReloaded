@@ -10,7 +10,7 @@ import de.mcreloaded.core.Core;
 public enum ItemType {
 
 	IRONHAMMER("ironhammer", "§fIron Hammer", Material.IRON_PICKAXE, 305001, List.of(ItemModifiers.MINI_EXCAVATOR)),
-	EXCAVATOR("excavator", "§fExcavator", Material.NETHERITE_PICKAXE, 305001, List.of(ItemModifiers.MEGA_EXCAVATOR));
+	STORMLANDER("stormlander", "§fStormlander", Material.IRON_PICKAXE, 305002, List.of(ItemModifiers.THUNDER_SHOT, ItemModifiers.MINI_EXCAVATOR));
 	
 	final NamespacedKey key;
 	final String name;

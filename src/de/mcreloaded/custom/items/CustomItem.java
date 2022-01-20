@@ -83,4 +83,5 @@ public class CustomItem {
 	public final ItemType getItemType() {
 		return itemtype;
 	}
+	
 }

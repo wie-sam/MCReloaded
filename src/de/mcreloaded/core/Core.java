@@ -13,6 +13,7 @@ import de.mcreloaded.datamanagment.cache.UserManager;
 import de.mcreloaded.listener.player.PlayerConnect;
 import de.mcreloaded.listener.player.PlayerDeath;
 import de.mcreloaded.listener.player.PlayerInteract;
+import de.mcreloaded.listener.server.PistonMove;
 
 public class Core extends JavaPlugin{
 	
@@ -56,6 +57,7 @@ public class Core extends JavaPlugin{
 		Bukkit.getPluginManager().registerEvents(new PlayerConnect(), this);	
 		Bukkit.getPluginManager().registerEvents(new PlayerInteract(), this);	
 		Bukkit.getPluginManager().registerEvents(new PlayerDeath(), this);	
+		Bukkit.getPluginManager().registerEvents(new PistonMove(), this);	
 	}
 	
 	public static Core getPlugin() {

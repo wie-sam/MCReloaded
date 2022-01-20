@@ -19,7 +19,8 @@ public enum Achievements {
 	OLDONESSCEPTER(13, "The Old Ones Scepter", "Optain the Scepter of the Wise", 40, 0, AchievementCategory.MAGIC),
 	VOIDSCEPTER(14, "Void Scepter", "Craft the Scepter of the End", 50, 0, AchievementCategory.MAGIC),
 	ALLMIGTHYSCEPTER(15, "Sceptrum Omnipotentis", "Craft the thing that can destroy the FUCKING universe!!!", 150, 0, AchievementCategory.MAGIC),
-	MAGICRENFORCMENT(16, "Magic Renforcement", "Consume a Manaheart", 10, 0, AchievementCategory.MAGIC);
+	MAGICRENFORCMENT(16, "Magic Renforcement", "Consume a Manaheart", 10, 0, AchievementCategory.MAGIC),
+	ELECTRIFY(17, "Electrify", "Fire a Lightning Strike with Stormlander", 20, 0, AchievementCategory.COMBAT);
 	
 	private final int databaseid;
 	private final String name;
