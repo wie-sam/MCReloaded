@@ -7,10 +7,10 @@ import de.mcreloaded.core.Constants;
 public final class ConsoleLogger {
 
 	/*
-	 * Diese klasse ist dafür da um nachrichten verschidender dringigkeit 
-	 * in der Konsole an zuzeigen.
+	 * Diese klasse ist dafür da um nachrichten verschidender dringigkeit in der
+	 * Konsole an zuzeigen.
 	 */
-	
+
 	// info
 	public static void info(Object className, Object message) {
 		Bukkit.getConsoleSender().sendMessage("[Info] " + className + " : " + message);
@@ -50,16 +50,16 @@ public final class ConsoleLogger {
 	public static void warning(Object message) {
 		Bukkit.getConsoleSender().sendMessage("[Warning] : " + message);
 	}
-	
-	public enum ConsoleLoggerNames{
+
+	public enum ConsoleLoggerNames {
 		LITESQL("LiteSQL");
-		
+
 		private final String name;
-		
+
 		ConsoleLoggerNames(String name) {
 			this.name = name;
 		}
-		
+
 		public final String getDisplayName() {
 			return this.name;
 		}

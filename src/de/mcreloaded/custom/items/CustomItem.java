@@ -1,6 +1,7 @@
 package de.mcreloaded.custom.items;
 
 import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -13,14 +14,18 @@ public class CustomItem {
 	private final ItemStack itemstack;
 	private final ItemType itemtype;
 	
-	public CustomItem(ItemStack itemstack, ItemType itemtype) {
+	public CustomItem(ItemType itemtype) {
 		this.itemtype = itemtype;
-		final ItemMeta itemmeta = itemstack.getItemMeta();
+		ItemStack is = new ItemStack(itemtype.getMaterial());
+		final ItemMeta itemmeta = is.getItemMeta();
 		final PersistentDataContainer pdc = itemmeta.getPersistentDataContainer();
 		pdc.set(itemtype.getIdentifierKey(), PersistentDataType.BYTE, (byte) 1);
-		//itemmeta.setCustomModelData(-1);
-		itemstack.setItemMeta(itemmeta);
-		this.itemstack = itemstack;
+		itemmeta.setDisplayName(itemtype.getName());
+		itemmeta.setCustomModelData(itemtype.getCustomModelDataID());
+		is.setItemMeta(itemmeta);
+		this.itemstack = is;
+		
+		updateLore(new LoreBuilder(this));
 	}
 	
 	//Vererbt eine alte CustomItem Instance und generiert einen neuen HashCode
@@ -31,8 +36,8 @@ public class CustomItem {
 	
 	
 	public CustomItem(ItemStack itemstack) throws CustomItemNotFoundExeption{
-		final ItemMeta itemmeta = itemstack.getItemMeta();
-		if(itemmeta != null) {
+		if(itemstack.hasItemMeta()) {
+			final ItemMeta itemmeta = itemstack.getItemMeta();
 			final PersistentDataContainer pdc = itemmeta.getPersistentDataContainer();
 			ItemType ikey = null;
 			for(NamespacedKey keys : pdc.getKeys()) {
@@ -43,6 +48,7 @@ public class CustomItem {
 					}
 				}
 			}
+			
 			if(!ikey.equals(null)) {
 				this.itemtype = ikey;
 				this.itemstack = itemstack;
@@ -66,6 +72,12 @@ public class CustomItem {
 	
 	public final ItemStack getItemStack() {
 		return itemstack;
+	}
+	
+	public final void addItemFlags(ItemFlag... itemflag) {
+		final ItemMeta itemmeta = itemstack.getItemMeta();
+		itemmeta.addItemFlags(itemflag);
+		itemstack.setItemMeta(itemmeta);
 	}
 	
 	public final ItemType getItemType() {

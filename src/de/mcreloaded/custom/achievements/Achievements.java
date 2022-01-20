@@ -2,6 +2,8 @@ package de.mcreloaded.custom.achievements;
 
 public enum Achievements {
 	
+	//Hier sind alle Achievements in diesem enum vermerkt
+	
 	FIRSTJOIN(1,"Hello there!", "Join the server for the first time!", 0, 0, AchievementCategory.BASIC),
 	FIRSTCHAT(2, "Let the world hear your voice!", "Use the chat for the first time!", 0, 0, AchievementCategory.BASIC),
 	ANTIBATMAN(3, "Anti-Batman","Murder a bat", 0, 0, AchievementCategory.COMBAT),
@@ -57,5 +59,14 @@ public enum Achievements {
 	
 	public AchievementCategory getCategory() {
 		return this.category;
+	}
+	
+	public static Achievements getFromDatabaseID(int id) {
+		for(Achievements achievements : Achievements.values()) {
+			if(achievements.getDatabaseID() == id) {
+				return achievements;
+			}
+		}
+		return null;
 	}
 }

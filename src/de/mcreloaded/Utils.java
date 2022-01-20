@@ -1,10 +1,29 @@
 package de.mcreloaded;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 
+import de.mcreloaded.core.Core;
+
 public final class Utils {
-	
-	//Überprüft ob die version des Servers eine minecraft version ist 
+
+	public static Boolean doesPlayerExistInDB(UUID uuid) {
+		try {
+			PreparedStatement ps = Core.getPlugin().LITESQL.getConnection().prepareStatement("SELECT uuid FROM playerdata WHERE uuid = ?");
+			ps.setString(1, uuid.toString());
+			ResultSet rs = ps.executeQuery();
+			return rs.next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	// Überprüft ob die version des Servers eine minecraft version ist
 	public static final boolean isRunningMinecraft(int major, int minor, int revision) {
 		String[] version = Bukkit.getServer().getBukkitVersion().split("-")[0].split("\\.");
 		int maj = Integer.parseInt(version[0]);
@@ -18,7 +37,7 @@ public final class Utils {
 		return maj > major || min > minor || (min == minor && rev >= revision);
 	}
 
-	//Checkt ob der Server ist Spigot Based
+	// Checkt ob der Server ist Spigot Based
 	public static final boolean isRunningSpigot() {
 		return classExists("org.spigotmc.CustomTimingsHandler");
 	}

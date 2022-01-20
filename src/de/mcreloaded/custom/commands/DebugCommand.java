@@ -9,6 +9,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 import de.mcreloaded.core.Core;
+import de.mcreloaded.custom.achievements.Achievements;
 import de.mcreloaded.custom.items.ItemType;
 
 public final class DebugCommand implements CommandExecutor, TabCompleter{
@@ -25,8 +26,10 @@ public final class DebugCommand implements CommandExecutor, TabCompleter{
 				player.sendMessage("False");
 			}
 			*/
-			
-
+			for(Achievements a : Achievements.values()) {
+				Core.getPlugin().USERMANAGER.getProfile(player.getUniqueId()).giveAchievement(a);
+			}
+		
 			player.getInventory().addItem(Core.getPlugin().ITEMMANAGER.getCustomItemByID(ItemType.IRONHAMMER).getItemStack());
 			player.sendMessage(Core.getPlugin().ITEMMANAGER.getCustomItemByID(ItemType.IRONHAMMER).getItemStack().toString());
 		}
