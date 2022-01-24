@@ -84,4 +84,14 @@ public class CustomItem {
 		return itemtype;
 	}
 	
+	public boolean isCorrectItem(ItemStack is) {
+		if(is == null)
+			return false;
+		if(!is.hasItemMeta())
+			return false;
+		if(is.getItemMeta().getPersistentDataContainer().get(itemtype.getIdentifierKey(), PersistentDataType.BYTE) != null){
+			return true;
+		}
+		return false;
+	}
 }

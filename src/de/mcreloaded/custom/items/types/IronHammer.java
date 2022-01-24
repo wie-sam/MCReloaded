@@ -10,7 +10,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.persistence.PersistentDataType;
 
 import de.mcreloaded.core.Core;
 import de.mcreloaded.custom.items.CustomItem;
@@ -35,7 +34,7 @@ public final class IronHammer extends CustomItem implements Listener {
 		Player player = e.getPlayer();
 		ItemStack item = new ItemStack(player.getItemInHand());
 		
-		if(item.getItemMeta().getPersistentDataContainer().get(ItemType.IRONHAMMER.getIdentifierKey(), PersistentDataType.BYTE) != null) {
+		if(isCorrectItem(item)){
 			BlockFace face = Core.getPlugin().USERMANAGER.getProfile(player.getUniqueId()).getLastBlockFace();
 			Block block = e.getBlock();
 			boolean isGamemode = !player.getGameMode().equals(GameMode.CREATIVE);

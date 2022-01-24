@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.mcreloaded.custom.items.types.IronHammer;
+import de.mcreloaded.custom.items.types.Stormlander;
 import de.mcreloaded.tools.ConsoleLogger;
 
 public class ItemManager {
@@ -17,6 +18,7 @@ public class ItemManager {
 	
 	private void initItems() {
 		this.cilist.add(new IronHammer());
+		this.cilist.add(new Stormlander());
 	}
 	
 	public CustomItem getCustomItemByID(ItemType itemtype){
