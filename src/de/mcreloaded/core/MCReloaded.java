@@ -23,7 +23,7 @@ public class Core extends JavaPlugin{
 	public LiteSQL LITESQL;
 	public UserManager USERMANAGER;
 	
-	//Wenn der Plugin Aktiviert wird, wird diese Methode ausgeführt.
+	//Wenn der Plugin Aktiviert wird, wird diese Methode ausgefÃ¼hrt.
 	public void onEnable() {
 		INSTANCE = this;
 		
@@ -40,10 +40,10 @@ public class Core extends JavaPlugin{
 		init();
 	}
 	
-	//Wenn der Plugin Deaktiviert wird, wird diese Methode ausgeführt.
+	//Wenn der Plugin Deaktiviert wird, wird diese Methode ausgefÃ¼hrt.
 	public void onDisable(){
 		
-		//Immer als letztes ausführen
+		//Immer als letztes ausfÃ¼hren
 		LITESQL.disconnect();
 	}
 	
